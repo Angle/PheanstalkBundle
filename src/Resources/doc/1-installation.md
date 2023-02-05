@@ -37,7 +37,7 @@ Finally, add the following to your config.yml
 
 ``` yaml
 # app/config/config.yml
-angle_pheanstalk:
+pheanstalk:
     pheanstalks:
         primary:
             server: beanstalkd.domain.tld

@@ -47,7 +47,7 @@ The injection of a dispatcher isn't mandatory. Don't inject it and the logger wi
 
 ``` yaml
 # app/config/config.yml
-angle_pheanstalk:
+pheanstalk:
     pheanstalks:
         foo_bar:
             server: beanstalkd-2.domain.tld

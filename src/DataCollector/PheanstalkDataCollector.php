@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /**
- * This is the data collector for AnglePheanstalkBundle.
+ * This is the data collector for PheanstalkBundle.
  *
  * @see    http://symfony.com/doc/current/cookbook/profiler/data_collector.html
  *
@@ -91,7 +91,7 @@ class PheanstalkDataCollector extends DataCollector
         return 'pheanstalk';
     }
 
-    protected function doCollect(Request $request, Response $response, Throwable $exception = null)
+    protected function doCollect(Request $request, Response $response, ?Throwable $exception = null)
     {
         $defaultPheanstalk = $this->pheanstalkLocator->getDefaultPheanstalk();
 

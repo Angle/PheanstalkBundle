@@ -10,7 +10,7 @@ This bundle can be configured, and this is the list of what you can do :
 
 ``` yaml
 # app/config/config.yml
-angle_pheanstalk:
+pheanstalk:
     pheanstalks:
         primary:
             server: beanstalkd.domain.tld
@@ -22,7 +22,7 @@ angle_pheanstalk:
             proxy: acme.pheanstalk
     profiler:
         enabled: true
-        template: 'LeezyPheanstalkBundle:Profiler:pheanstalk.html.twig'
+        template: 'PheanstalkBundle:Profiler:pheanstalk.html.twig'
 ```
 
 *acme.pheanstalk* is a custom proxy which implements the *Angle\PheanstalkBundle\Proxy\PheanstalkProxyInterface* interface.

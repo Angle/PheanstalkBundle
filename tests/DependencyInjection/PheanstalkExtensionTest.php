@@ -2,8 +2,8 @@
 
 namespace Angle\PheanstalkBundle\Tests\DependencyInjection;
 
-use Angle\PheanstalkBundle\DependencyInjection\AnglePheanstalkExtension;
-use Angle\PheanstalkBundle\AnglePheanstalkBundle;
+use Angle\PheanstalkBundle\DependencyInjection\PheanstalkExtension;
+use Angle\PheanstalkBundle\PheanstalkBundle;
 use Angle\PheanstalkBundle\Proxy\PheanstalkProxy;
 use Angle\PheanstalkBundle\Proxy\PheanstalkProxyInterface;
 use PHPUnit\Framework\TestCase;
@@ -19,16 +19,16 @@ class PheanstalkExtensionTest extends TestCase
     private $container;
 
     /**
-     * @var AnglePheanstalkExtension
+     * @var PheanstalkExtension
      */
     private $extension;
 
     protected function setUp(): void
     {
         $this->container = new ContainerBuilder();
-        $this->extension = new AnglePheanstalkExtension();
+        $this->extension = new PheanstalkExtension();
 
-        $bundle = new AnglePheanstalkBundle();
+        $bundle = new PheanstalkBundle();
         $bundle->build($this->container); // Attach all default factories
     }
 
@@ -40,7 +40,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testInitConfiguration()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -61,7 +61,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testDefaultPheanstalk()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -82,7 +82,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testNoDefaultPheanstalk()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -103,7 +103,7 @@ class PheanstalkExtensionTest extends TestCase
     {
         $this->expectException(\Angle\PheanstalkBundle\Exceptions\PheanstalkException::class);
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'one' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -123,7 +123,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testMultiplePheanstalks()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'one'   => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -153,7 +153,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testPheanstalkLocator()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -174,7 +174,7 @@ class PheanstalkExtensionTest extends TestCase
     {
         $this->expectException(\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException::class);
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -193,7 +193,7 @@ class PheanstalkExtensionTest extends TestCase
     {
         $this->expectException(\RuntimeException::class);
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'proxy' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -211,7 +211,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testPheanstalkProxyCustomType()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -234,7 +234,7 @@ class PheanstalkExtensionTest extends TestCase
     public function testLoggerConfiguration()
     {
         $config = [
-            'angle_pheanstalk' => [
+            'pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',

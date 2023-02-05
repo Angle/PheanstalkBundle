@@ -18,7 +18,7 @@ Commands are available for the following tasks:
 **Note:**
 
 ```
-You must have correctly installed and configured the LeezyPheanstalkBundle before using 
+You must have correctly installed and configured the PheanstalkBundle before using 
 these commands.
 ```
 
