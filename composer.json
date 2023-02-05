@@ -1,44 +1,62 @@
 {
-    "name": "leezy/pheanstalk-bundle",
-    "description": "The LeezyPheanstalkBundle is a Symfony Bundle that provides a command line interface for manage the Beanstalkd workqueue server & a pheanstalk integration.",
-    "keywords": ["symfony", "beanstalkd", "bundle", "pheanstalk", "queueing", "messaging", "asynchronous"],
+    "name": "anglemx/pheanstalk-bundle",
+    "description": "Symfony Bundle that integrates the Pheanstalk client for the Beanstalkd workqueue",
+    "keywords": ["symfony", "beanstalkd", "bundle", "pheanstalk"],
     "type": "symfony-bundle",
-    "homepage": "https://github.com/armetiz/LeezyPheanstalkBundle",
+    "homepage": "https://github.com/Angle/PheanstalkBundle",
     "license": "MIT",
-    "authors": [{
-        "name" : "Thomas Tourlourat",
-        "email" : "thomas@tourlourat.com",
-        "homepage": "http://www.armetiz.info"
-    }],
+    "authors": [
+        {
+            "name" : "Thomas Tourlourat",
+            "email" : "thomas@tourlourat.com",
+            "homepage": "http://www.armetiz.info",
+            "role": "original author"
+        },
+        {
+            "name": "Edmundo Fuentes",
+            "email": "me@edmundofuentes.com",
+            "homepage": "https://www.edmundofuentes.com",
+            "role": "manager,architect,developer"
+        },
+        {
+            "name": "Alejandro Hernández Guerrero",
+            "email": "me@alexhdz.com",
+            "homepage": "https://www.alexhdz.com",
+            "role": "manager,architect,developer"
+        },
+        {
+            "name": "Angle Consulting",
+            "email": "email@angle.mx",
+            "homepage": "https://www.angle.mx",
+            "role": "owner"
+        }],
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "bin-dir": "bin"
     },
     "require": {
-        "php": ">=7.2.0",
+        "php": ">=8.1",
         "pda/pheanstalk": "^4",
         "psr/log": "^1",
-        "symfony/console": "^3|^4|^5",
-        "symfony/framework-bundle": "^3|^4|^5"
+        "symfony/console": "^5",
+        "symfony/framework-bundle": "^5"
     },
     "require-dev": {
         "phpunit/phpunit": "^8|^9.5"
     },
     "autoload": {
         "psr-4": {
-            "Leezy\\PheanstalkBundle\\": "src/"
+            "Angle\\PheanstalkBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Leezy\\PheanstalkBundle\\Tests\\": "tests/"
+            "Angle\\PheanstalkBundle\\Tests\\": "tests/"
         }
-    },
-    "config": {
-        "bin-dir": "bin"
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "4.x-dev"
+            "dev-master": "5.x-dev"
         }
     }
 }
