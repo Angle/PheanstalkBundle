@@ -17,7 +17,7 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('angle_pheanstalk');
+        $treeBuilder = new TreeBuilder('pheanstalk');
         $rootNode = $treeBuilder->getRootNode();
 
 
@@ -26,7 +26,7 @@ class Configuration implements ConfigurationInterface
                 ->addDefaultsIfNotSet()
                 ->children()
                     ->booleanNode('enabled')->defaultValue('%kernel.debug%')->end()
-                    ->scalarNode('template')->defaultValue('@AnglePheanstalk/Profiler/pheanstalk.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('@Pheanstalk/Profiler/pheanstalk.html.twig')->end()
                 ->end()
             ->end()
             ->arrayNode('pheanstalks')
