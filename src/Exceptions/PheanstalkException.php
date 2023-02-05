@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Exceptions;
+namespace Angle\PheanstalkBundle\Exceptions;
 
 class PheanstalkException extends \Exception
 {

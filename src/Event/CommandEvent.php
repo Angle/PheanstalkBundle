@@ -1,37 +1,37 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Event;
+namespace Angle\PheanstalkBundle\Event;
 
 use Pheanstalk\Contract\PheanstalkInterface;
 use Symfony\Contracts\EventDispatcher\Event;
 
 class CommandEvent extends Event
 {
-    public const BURY = 'leezy.pheanstalk.event.bury';
-    public const DELETE = 'leezy.pheanstalk.event.delete';
-    public const IGNORE = 'leezy.pheanstalk.event.ignore';
-    public const KICK = 'leezy.pheanstalk.event.kick';
-    public const KICK_JOB = 'leezy.pheanstalk.event.kick_job';
-    public const LIST_TUBE_USED = 'leezy.pheanstalk.event.list_tube_used';
-    public const LIST_TUBES = 'leezy.pheanstalk.event.list_tubes';
-    public const LIST_TUBES_WATCHED = 'leezy.pheanstalk.event.list_tubes_watched';
-    public const PAUSE_TUBE = 'leezy.pheanstalk.event.pause_tube';
-    public const RESUME_TUBE = 'leezy.pheanstalk.event.resume_tube';
-    public const PEEK = 'leezy.pheanstalk.event.peek';
-    public const PEEK_READY = 'leezy.pheanstalk.event.peek_ready';
-    public const PEEK_DELAYED = 'leezy.pheanstalk.event.peek_delayed';
-    public const PEEK_BURIED = 'leezy.pheanstalk.event.peek_buried';
-    public const PUT = 'leezy.pheanstalk.event.put';
-    public const RELEASE = 'leezy.pheanstalk.event.release';
-    public const RESERVE = 'leezy.pheanstalk.event.reserve';
-    public const RESERVE_WITH_TIMEOUT = 'leezy.pheanstalk.event.reserve_with_timeout';
-    public const STATS = 'leezy.pheanstalk.event.stats';
-    public const STATS_TUBE = 'leezy.pheanstalk.event.stats_tube';
-    public const STATS_JOB = 'leezy.pheanstalk.event.stats_job';
-    public const TOUCH = 'leezy.pheanstalk.event.touch';
-    public const USE_TUBE = 'leezy.pheanstalk.event.use_tube';
-    public const WATCH = 'leezy.pheanstalk.event.watch';
-    public const WATCH_ONLY = 'leezy.pheanstalk.event.watch_only';
+    public const BURY = 'angle.pheanstalk.event.bury';
+    public const DELETE = 'angle.pheanstalk.event.delete';
+    public const IGNORE = 'angle.pheanstalk.event.ignore';
+    public const KICK = 'angle.pheanstalk.event.kick';
+    public const KICK_JOB = 'angle.pheanstalk.event.kick_job';
+    public const LIST_TUBE_USED = 'angle.pheanstalk.event.list_tube_used';
+    public const LIST_TUBES = 'angle.pheanstalk.event.list_tubes';
+    public const LIST_TUBES_WATCHED = 'angle.pheanstalk.event.list_tubes_watched';
+    public const PAUSE_TUBE = 'angle.pheanstalk.event.pause_tube';
+    public const RESUME_TUBE = 'angle.pheanstalk.event.resume_tube';
+    public const PEEK = 'angle.pheanstalk.event.peek';
+    public const PEEK_READY = 'angle.pheanstalk.event.peek_ready';
+    public const PEEK_DELAYED = 'angle.pheanstalk.event.peek_delayed';
+    public const PEEK_BURIED = 'angle.pheanstalk.event.peek_buried';
+    public const PUT = 'angle.pheanstalk.event.put';
+    public const RELEASE = 'angle.pheanstalk.event.release';
+    public const RESERVE = 'angle.pheanstalk.event.reserve';
+    public const RESERVE_WITH_TIMEOUT = 'angle.pheanstalk.event.reserve_with_timeout';
+    public const STATS = 'angle.pheanstalk.event.stats';
+    public const STATS_TUBE = 'angle.pheanstalk.event.stats_tube';
+    public const STATS_JOB = 'angle.pheanstalk.event.stats_job';
+    public const TOUCH = 'angle.pheanstalk.event.touch';
+    public const USE_TUBE = 'angle.pheanstalk.event.use_tube';
+    public const WATCH = 'angle.pheanstalk.event.watch';
+    public const WATCH_ONLY = 'angle.pheanstalk.event.watch_only';
 
     /**
      * @var PheanstalkInterface

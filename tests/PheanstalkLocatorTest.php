@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests;
+namespace Angle\PheanstalkBundle\Tests;
 
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Pheanstalk\Contract\PheanstalkInterface;
 use PHPUnit\Framework\TestCase;
 

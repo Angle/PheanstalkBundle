@@ -1,9 +1,9 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\DataCollector;
+namespace Angle\PheanstalkBundle\DataCollector;
 
 use Throwable;
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Pheanstalk\Contract\PheanstalkInterface;
 use Pheanstalk\Exception\ConnectionException;
 use Pheanstalk\Exception\ServerException;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 
 /**
- * This is the data collector for LeezyPheanstalkBundle.
+ * This is the data collector for AnglePheanstalkBundle.
  *
  * @see    http://symfony.com/doc/current/cookbook/profiler/data_collector.html
  *

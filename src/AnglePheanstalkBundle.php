@@ -1,12 +1,12 @@
 <?php
 
-namespace Leezy\PheanstalkBundle;
+namespace Angle\PheanstalkBundle;
 
-use Leezy\PheanstalkBundle\DependencyInjection\Compiler\ProxyCompilerPass;
+use Angle\PheanstalkBundle\DependencyInjection\Compiler\ProxyCompilerPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class LeezyPheanstalkBundle extends Bundle
+class AnglePheanstalkBundle extends Bundle
 {
     /**
      * @inheritdoc

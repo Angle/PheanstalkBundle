@@ -1,9 +1,9 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Listener;
+namespace Angle\PheanstalkBundle\Listener;
 
-use Leezy\PheanstalkBundle\Event\CommandEvent;
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\Event\CommandEvent;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Psr\Log\LoggerAwareTrait;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 

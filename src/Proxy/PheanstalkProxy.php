@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Proxy;
+namespace Angle\PheanstalkBundle\Proxy;
 
-use Leezy\PheanstalkBundle\Event\CommandEvent;
+use Angle\PheanstalkBundle\Event\CommandEvent;
 use Pheanstalk\Contract\JobIdInterface;
 use Pheanstalk\Contract\PheanstalkInterface;
 use Pheanstalk\Contract\ResponseInterface;

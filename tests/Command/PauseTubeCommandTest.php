@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\PauseTubeCommand;
+use Angle\PheanstalkBundle\Command\PauseTubeCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class PauseTubeCommandTest extends AbstractPheanstalkCommandTest
@@ -15,7 +15,7 @@ class PauseTubeCommandTest extends AbstractPheanstalkCommandTest
 
         $this->pheanstalk->expects($this->once())->method('pauseTube')->with($tube, $delay);
 
-        $command = $this->application->find('leezy:pheanstalk:pause-tube');
+        $command = $this->application->find('pheanstalk:pause-tube');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

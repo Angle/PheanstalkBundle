@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Contract\PheanstalkInterface;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,7 +15,7 @@ class PutCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:put')
+            ->setName('pheanstalk:put')
             ->addArgument('tube', InputArgument::REQUIRED, 'Tube to put job.')
             ->addArgument('data', InputArgument::REQUIRED, 'The job data.')
             ->addArgument('priority', InputArgument::OPTIONAL, 'From 0 (most urgent) to 0xFFFFFFFF (least urgent).', PheanstalkInterface::DEFAULT_PRIORITY)

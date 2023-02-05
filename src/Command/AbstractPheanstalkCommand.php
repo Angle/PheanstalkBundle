@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Pheanstalk\Contract\PheanstalkInterface;
 use Symfony\Component\Console\Command\Command;
 

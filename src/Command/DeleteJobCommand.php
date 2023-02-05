@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Pheanstalk\JobId;
@@ -16,7 +16,7 @@ class DeleteJobCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:delete-job')
+            ->setName('pheanstalk:delete-job')
             ->addArgument('job', InputArgument::REQUIRED, 'Jod id to delete.')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('Delete the specified job if it exists.');

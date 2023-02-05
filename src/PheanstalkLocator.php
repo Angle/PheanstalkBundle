@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle;
+namespace Angle\PheanstalkBundle;
 
-use Leezy\PheanstalkBundle\Exceptions\PheanstalkException;
+use Angle\PheanstalkBundle\Exceptions\PheanstalkException;
 use Pheanstalk\Contract\PheanstalkInterface;
 
 class PheanstalkLocator

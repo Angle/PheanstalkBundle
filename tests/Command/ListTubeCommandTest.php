@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\ListTubeCommand;
+use Angle\PheanstalkBundle\Command\ListTubeCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class ListTubeCommandTest extends AbstractPheanstalkCommandTest
@@ -14,7 +14,7 @@ class ListTubeCommandTest extends AbstractPheanstalkCommandTest
 
         $this->pheanstalk->expects($this->once())->method('listTubes')->will($this->returnValue($tubes));
 
-        $command = $this->application->find('leezy:pheanstalk:list-tube');
+        $command = $this->application->find('pheanstalk:list-tube');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

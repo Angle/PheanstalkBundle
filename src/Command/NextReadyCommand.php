@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -15,7 +15,7 @@ class NextReadyCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:next-ready')
+            ->setName('pheanstalk:next-ready')
             ->addArgument('tube', InputArgument::REQUIRED, 'Tube to get next ready.')
             ->addOption(
                 'details',

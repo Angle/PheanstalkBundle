@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\StatsJobCommand;
+use Angle\PheanstalkBundle\Command\StatsJobCommand;
 use Pheanstalk\JobId;
 use Pheanstalk\Response\ArrayResponse;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -21,7 +21,7 @@ class StatsJobCommandTest extends AbstractPheanstalkCommandTest
 
         $this->pheanstalk->expects($this->once())->method('statsJob')->with($jobId)->will($this->returnValue($stats));
 
-        $command       = $this->application->find('leezy:pheanstalk:stats-job');
+        $command       = $this->application->find('pheanstalk:stats-job');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

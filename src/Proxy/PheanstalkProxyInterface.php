@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Proxy;
+namespace Angle\PheanstalkBundle\Proxy;
 
 use Pheanstalk\Contract\PheanstalkInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\DependencyInjection;
+namespace Angle\PheanstalkBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -17,20 +17,16 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder('leezy_pheanstalk');
-        if (method_exists($treeBuilder, 'getRootNode')) {
-            $rootNode = $treeBuilder->getRootNode();
-        } else {
-            // BC layer for symfony/config 4.1 and older
-            $rootNode = $treeBuilder->root('leezy_pheanstalk');
-        }
+        $treeBuilder = new TreeBuilder('angle_pheanstalk');
+        $rootNode = $treeBuilder->getRootNode();
+
 
         $rootNode->children()
             ->arrayNode('profiler')
                 ->addDefaultsIfNotSet()
                 ->children()
                     ->booleanNode('enabled')->defaultValue('%kernel.debug%')->end()
-                    ->scalarNode('template')->defaultValue('@LeezyPheanstalk/Profiler/pheanstalk.html.twig')->end()
+                    ->scalarNode('template')->defaultValue('@AnglePheanstalk/Profiler/pheanstalk.html.twig')->end()
                 ->end()
             ->end()
             ->arrayNode('pheanstalks')
@@ -55,7 +51,7 @@ class Configuration implements ConfigurationInterface
                         ->end()
                         ->scalarNode('proxy')
                             ->cannotBeEmpty()
-                            ->defaultValue('leezy.pheanstalk.proxy.default')
+                            ->defaultValue('angle.pheanstalk.proxy.default')
                         ->end()
                     ->end()
                 ->end()

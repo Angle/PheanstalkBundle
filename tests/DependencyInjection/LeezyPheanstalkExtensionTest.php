@@ -1,17 +1,17 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\DependencyInjection;
+namespace Angle\PheanstalkBundle\Tests\DependencyInjection;
 
-use Leezy\PheanstalkBundle\DependencyInjection\LeezyPheanstalkExtension;
-use Leezy\PheanstalkBundle\LeezyPheanstalkBundle;
-use Leezy\PheanstalkBundle\Proxy\PheanstalkProxy;
-use Leezy\PheanstalkBundle\Proxy\PheanstalkProxyInterface;
+use Angle\PheanstalkBundle\DependencyInjection\AnglePheanstalkExtension;
+use Angle\PheanstalkBundle\AnglePheanstalkBundle;
+use Angle\PheanstalkBundle\Proxy\PheanstalkProxy;
+use Angle\PheanstalkBundle\Proxy\PheanstalkProxyInterface;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\NullLogger;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 
-class LeezyPheanstalkExtensionTest extends TestCase
+class PheanstalkExtensionTest extends TestCase
 {
     /**
      * @var ContainerBuilder
@@ -19,16 +19,16 @@ class LeezyPheanstalkExtensionTest extends TestCase
     private $container;
 
     /**
-     * @var LeezyPheanstalkExtension
+     * @var AnglePheanstalkExtension
      */
     private $extension;
 
     protected function setUp(): void
     {
         $this->container = new ContainerBuilder();
-        $this->extension = new LeezyPheanstalkExtension();
+        $this->extension = new AnglePheanstalkExtension();
 
-        $bundle = new LeezyPheanstalkBundle();
+        $bundle = new AnglePheanstalkBundle();
         $bundle->build($this->container); // Attach all default factories
     }
 
@@ -40,7 +40,7 @@ class LeezyPheanstalkExtensionTest extends TestCase
     public function testInitConfiguration()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -54,14 +54,14 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.pheanstalk_locator'));
-        $this->assertTrue($this->container->hasParameter('leezy.pheanstalk.pheanstalks'));  // Needed by ProxyCompilerPass
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.pheanstalk_locator'));
+        $this->assertTrue($this->container->hasParameter('angle.pheanstalk.pheanstalks'));  // Needed by ProxyCompilerPass
     }
 
     public function testDefaultPheanstalk()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -75,14 +75,14 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.primary'));
-        $this->assertTrue($this->container->hasAlias('leezy.pheanstalk'));
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.primary'));
+        $this->assertTrue($this->container->hasAlias('angle.pheanstalk'));
     }
 
     public function testNoDefaultPheanstalk()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -95,15 +95,15 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.primary'));
-        $this->assertFalse($this->container->hasAlias('leezy.pheanstalk'));
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.primary'));
+        $this->assertFalse($this->container->hasAlias('angle.pheanstalk'));
     }
 
     public function testTwoDefaultPheanstalks()
     {
-        $this->expectException(\Leezy\PheanstalkBundle\Exceptions\PheanstalkException::class);
+        $this->expectException(\Angle\PheanstalkBundle\Exceptions\PheanstalkException::class);
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'one' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -123,7 +123,7 @@ class LeezyPheanstalkExtensionTest extends TestCase
     public function testMultiplePheanstalks()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'one'   => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -142,18 +142,18 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.one'));
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.two'));
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.three'));
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.one'));
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.two'));
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.three'));
 
         # @see https://github.com/armetiz/LeezyPheanstalkBundle/issues/61
-        $this->assertNotSame($this->container->getDefinition('leezy.pheanstalk.one'), $this->container->getDefinition('leezy.pheanstalk.two'));
+        $this->assertNotSame($this->container->getDefinition('angle.pheanstalk.one'), $this->container->getDefinition('angle.pheanstalk.two'));
     }
 
     public function testPheanstalkLocator()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -167,14 +167,14 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.pheanstalk_locator'));
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.pheanstalk_locator'));
     }
 
     public function testPheanstalkProxyCustomTypeNotDefined()
     {
         $this->expectException(\Symfony\Component\DependencyInjection\Exception\InvalidArgumentException::class);
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -193,7 +193,7 @@ class LeezyPheanstalkExtensionTest extends TestCase
     {
         $this->expectException(\RuntimeException::class);
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'proxy' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -211,7 +211,7 @@ class LeezyPheanstalkExtensionTest extends TestCase
     public function testPheanstalkProxyCustomType()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -228,13 +228,13 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertNotNull($this->container->get('leezy.pheanstalk.primary'));
+        $this->assertNotNull($this->container->get('angle.pheanstalk.primary'));
     }
 
     public function testLoggerConfiguration()
     {
         $config = [
-            'leezy_pheanstalk' => [
+            'angle_pheanstalk' => [
                 'pheanstalks' => [
                     'primary' => [
                         'server'  => 'beanstalkd.domain.tld',
@@ -251,8 +251,8 @@ class LeezyPheanstalkExtensionTest extends TestCase
         $this->extension->load($config, $this->container);
         $this->container->compile();
 
-        $this->assertTrue($this->container->hasDefinition('leezy.pheanstalk.listener.log'));
-        $listener = $this->container->getDefinition('leezy.pheanstalk.listener.log');
+        $this->assertTrue($this->container->hasDefinition('angle.pheanstalk.listener.log'));
+        $listener = $this->container->getDefinition('angle.pheanstalk.listener.log');
 
         $this->assertTrue($listener->hasMethodCall('setLogger'));
         $this->assertTrue($listener->hasTag('monolog.logger'));

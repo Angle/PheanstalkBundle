@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,7 +15,7 @@ class StatsTubeCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:stats-tube')
+            ->setName('pheanstalk:stats-tube')
             ->addArgument('tube', InputArgument::OPTIONAL, 'Tube to get stats for.', null)
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.', null)
             ->setDescription('Gives statistical information about a specified tube, or about all tubes.');

@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\FlushTubeCommand;
+use Angle\PheanstalkBundle\Command\FlushTubeCommand;
 use Pheanstalk\Exception\ServerException;
 use Pheanstalk\Job;
 use Pheanstalk\JobId;
@@ -29,7 +29,7 @@ class FlushTubeCommandTest extends AbstractPheanstalkCommandTest
             });
         }
 
-        $command = $this->application->find('leezy:pheanstalk:flush-tube');
+        $command = $this->application->find('pheanstalk:flush-tube');
         $commandTester = new CommandTester($command);
         $commandTester->execute($this->getCommandArgs());
 

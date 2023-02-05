@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,7 +15,7 @@ class PauseTubeCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:pause-tube')
+            ->setName('pheanstalk:pause-tube')
             ->addArgument('tube', InputArgument::REQUIRED, 'The tube to pause')
             ->addArgument('delay', InputArgument::REQUIRED, 'Seconds before jobs may be reserved from this queue.')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')

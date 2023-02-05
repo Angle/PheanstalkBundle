@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Pheanstalk\JobId;
@@ -16,7 +16,7 @@ class StatsJobCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:stats-job')
+            ->setName('pheanstalk:stats-job')
             ->addArgument('job', InputArgument::REQUIRED, 'Jod id to get stats.')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('Gives statistical information about the specified job if it exists.');

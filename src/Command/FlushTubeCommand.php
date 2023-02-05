@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception\ServerException;
 use Pheanstalk\JobId;
@@ -16,7 +16,7 @@ class FlushTubeCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:flush-tube')
+            ->setName('pheanstalk:flush-tube')
             ->addArgument('tube', InputArgument::REQUIRED, 'Tube.')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('Delete all job in a specific tube.');

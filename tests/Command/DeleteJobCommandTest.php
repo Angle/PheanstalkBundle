@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\DeleteJobCommand;
+use Angle\PheanstalkBundle\Command\DeleteJobCommand;
 use Pheanstalk\JobId;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -15,7 +15,7 @@ class DeleteJobCommandTest extends AbstractPheanstalkCommandTest
 
         $this->pheanstalk->expects($this->once())->method('delete')->with($jobId);
 
-        $command = $this->application->find('leezy:pheanstalk:delete-job');
+        $command = $this->application->find('pheanstalk:delete-job');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
         $this->assertStringContainsString(sprintf('Job %d deleted', $jobId->getId()), $commandTester->getDisplay());

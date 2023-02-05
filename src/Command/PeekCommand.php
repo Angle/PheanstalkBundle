@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Pheanstalk\JobId;
@@ -16,7 +16,7 @@ class PeekCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:peek')
+            ->setName('pheanstalk:peek')
             ->addArgument('job', InputArgument::REQUIRED, 'The job to peek.')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('Inspect a job in the system, regardless of what tube it is in.');

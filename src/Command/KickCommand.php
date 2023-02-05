@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,7 +15,7 @@ class KickCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:kick')
+            ->setName('pheanstalk:kick')
             ->addArgument('tube', InputArgument::REQUIRED, 'The tube to kick the jobs from.')
             ->addArgument('max', InputArgument::OPTIONAL, 'The maximum job to kick from this tube.', 1)
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')

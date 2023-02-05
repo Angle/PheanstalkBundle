@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\PutCommand;
+use Angle\PheanstalkBundle\Command\PutCommand;
 use Pheanstalk\Job;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -23,7 +23,7 @@ class PutCommandTest extends AbstractPheanstalkCommandTest
         $this->pheanstalk->expects($this->once())->method('useTube')->with($tube)->will($this->returnValue($this->pheanstalk));
         $this->pheanstalk->expects($this->once())->method('put')->with($data, $priority, $delay, $ttr)->will($this->returnValue($job));
 
-        $command       = $this->application->find('leezy:pheanstalk:put');
+        $command       = $this->application->find('pheanstalk:put');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

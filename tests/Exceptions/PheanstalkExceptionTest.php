@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Exception;
+namespace Angle\PheanstalkBundle\Tests\Exception;
 
-use Leezy\PheanstalkBundle\Exceptions\PheanstalkException;
+use Angle\PheanstalkBundle\Exceptions\PheanstalkException;
 use PHPUnit\Framework\TestCase;
 
 class PheanstalkExceptionTest extends TestCase

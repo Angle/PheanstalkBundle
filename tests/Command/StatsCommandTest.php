@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\StatsCommand;
+use Angle\PheanstalkBundle\Command\StatsCommand;
 use Pheanstalk\Response\ArrayResponse;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -19,7 +19,7 @@ class StatsCommandTest extends AbstractPheanstalkCommandTest
 
         $this->pheanstalk->expects($this->once())->method('stats')->will($this->returnValue($stats));
 
-        $command       = $this->application->find('leezy:pheanstalk:stats');
+        $command       = $this->application->find('pheanstalk:stats');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

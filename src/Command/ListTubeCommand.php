@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -14,7 +14,7 @@ class ListTubeCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:list-tube')
+            ->setName('pheanstalk:list-tube')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('The names of all tubes on the server.');
     }

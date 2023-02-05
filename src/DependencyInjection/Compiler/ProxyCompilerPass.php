@@ -6,9 +6,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Leezy\PheanstalkBundle\DependencyInjection\Compiler;
+namespace Angle\PheanstalkBundle\DependencyInjection\Compiler;
 
-use Leezy\PheanstalkBundle\Exceptions\PheanstalkException;
+use Angle\PheanstalkBundle\Exceptions\PheanstalkException;
 use Pheanstalk\Contract\PheanstalkInterface;
 use Pheanstalk\Pheanstalk;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -37,14 +37,14 @@ class ProxyCompilerPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (!$container->hasParameter('leezy.pheanstalk.pheanstalks')) {
+        if (!$container->hasParameter('angle.pheanstalk.pheanstalks')) {
             return;
         }
 
         $defaultPheanstalkName = null;
-        $pheanstalks           = $container->getParameter('leezy.pheanstalk.pheanstalks');
+        $pheanstalks           = $container->getParameter('angle.pheanstalk.pheanstalks');
 
-        $pheanstalkLocatorDef = $container->getDefinition('leezy.pheanstalk.pheanstalk_locator');
+        $pheanstalkLocatorDef = $container->getDefinition('angle.pheanstalk.pheanstalk_locator');
 
         // For each connection in the configuration file
         foreach ($pheanstalks as $name => $pheanstalk) {
@@ -67,12 +67,12 @@ class ProxyCompilerPass implements CompilerPassInterface
                 $name
             ]);
 
-            $container->setDefinition('leezy.pheanstalk.'.$name, $pheanstalkDef);
+            $container->setDefinition('angle.pheanstalk.'.$name, $pheanstalkDef);
 
             // Register the connection in the connection locator
             $pheanstalkLocatorDef->addMethodCall('addPheanstalk', [
                 $name,
-                $container->getDefinition('leezy.pheanstalk.'.$name),
+                $container->getDefinition('angle.pheanstalk.'.$name),
                 $isDefault,
             ]);
 
@@ -82,12 +82,12 @@ class ProxyCompilerPass implements CompilerPassInterface
                 }
 
                 $defaultPheanstalkName = $name;
-                $legacyAlias = $container->setAlias('leezy.pheanstalk', 'leezy.pheanstalk.'.$name);
+                $legacyAlias = $container->setAlias('angle.pheanstalk', 'angle.pheanstalk.'.$name);
                 if ($legacyAlias) {
                     $legacyAlias->setPublic(true);
                 }
 
-                $autoWiringAlias = $container->setAlias(PheanstalkInterface::class, 'leezy.pheanstalk');
+                $autoWiringAlias = $container->setAlias(PheanstalkInterface::class, 'angle.pheanstalk');
                 if ($autoWiringAlias) {
                     $autoWiringAlias->setPublic(true);
                 }

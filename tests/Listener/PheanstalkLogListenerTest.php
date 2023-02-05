@@ -1,10 +1,10 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Listener;
+namespace Angle\PheanstalkBundle\Tests\Listener;
 
-use Leezy\PheanstalkBundle\Event\CommandEvent;
-use Leezy\PheanstalkBundle\Listener\PheanstalkLogListener;
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\Event\CommandEvent;
+use Angle\PheanstalkBundle\Listener\PheanstalkLogListener;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Pheanstalk\Connection;
 use Pheanstalk\Contract\PheanstalkInterface;
 use PHPUnit\Framework\TestCase;

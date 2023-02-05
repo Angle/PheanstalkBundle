@@ -5,15 +5,15 @@ Add a custom proxy only if you can't do what you want using [Events](/src/Resour
 # Create a proxy class
 
 Two choices:
-* Implement **Leezy\PheanstalkBundle\Proxy\PheanstalkProxyInterface**
-* Extend **Leezy\PheanstalkBundle\Proxy\PheanstalkProxy**
+* Implement **Angle\PheanstalkBundle\Proxy\PheanstalkProxyInterface**
+* Extend **Angle\PheanstalkBundle\Proxy\PheanstalkProxy**
 
 ```php
 <?php
 
 namespace Acme\DemoBundle\Proxy;
 
-use Leezy\PheanstalkBundle\Proxy\PheanstalkProxy as PheanstalkProxyBase;
+use Angle\PheanstalkBundle\Proxy\PheanstalkProxy as PheanstalkProxyBase;
 use Pheanstalk\PheanstalkInterface;
 
 class PheanstalkProxy extends PheanstalkProxyBase
@@ -47,7 +47,7 @@ The injection of a dispatcher isn't mandatory. Don't inject it and the logger wi
 
 ``` yaml
 # app/config/config.yml
-leezy_pheanstalk:
+angle_pheanstalk:
     pheanstalks:
         foo_bar:
             server: beanstalkd-2.domain.tld

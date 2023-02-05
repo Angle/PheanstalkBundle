@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\PeekTubeCommand;
+use Angle\PheanstalkBundle\Command\PeekTubeCommand;
 use Pheanstalk\Job;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -17,7 +17,7 @@ class PeekTubeCommandTest extends AbstractPheanstalkCommandTest
         $this->pheanstalk->expects($this->once())->method('useTube')->with($tube)->will($this->returnValue($this->pheanstalk));
         $this->pheanstalk->expects($this->once())->method('peekBuried')->will($this->returnValue($job));
 
-        $command = $this->application->find('leezy:pheanstalk:peek-tube');
+        $command = $this->application->find('pheanstalk:peek-tube');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

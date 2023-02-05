@@ -29,7 +29,7 @@ See events name above :
 * CommandEvent::WATCH 
 * CommandEvent::WATCH_ONLY 
 
-**Note** FQDN is `\Leezy\PheanstalkBundle\Event\CommandEvent`
+**Note** FQDN is `\Angle\PheanstalkBundle\Event\CommandEvent`
 **Note** If you need more documentation about those events; you should read the [beanstalkd protocol](https://raw.githubusercontent.com/kr/beanstalkd/master/doc/protocol.txt).
 
 ## Usage example
@@ -41,7 +41,7 @@ namespace Acme\DemoBundle\Listener;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-use Leezy\PheanstalkBundle\Event\CommandEvent;
+use Angle\PheanstalkBundle\Event\CommandEvent;
 
 class PheanstalkSubscriber implements EventSubscriberInterface {
 
@@ -87,7 +87,7 @@ class HomeController extends Controller {
         // ----------------------------------------
         // producer (queues jobs)
 
-        $pheanstalk = $this->get("leezy.pheanstalk");
+        $pheanstalk = $this->get("angle.pheanstalk");
         $pheanstalk->useTube('testtube');
         $pheanstalk->put("job payload goes here\n");
     }

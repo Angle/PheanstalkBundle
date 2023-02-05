@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Event;
+namespace Angle\PheanstalkBundle\Tests\Event;
 
-use Leezy\PheanstalkBundle\Event\CommandEvent;
+use Angle\PheanstalkBundle\Event\CommandEvent;
 use Pheanstalk\Contract\PheanstalkInterface;
 use PHPUnit\Framework\TestCase;
 

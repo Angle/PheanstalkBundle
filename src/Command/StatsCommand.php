@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Symfony\Component\Console\Input\InputArgument;
@@ -15,7 +15,7 @@ class StatsCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:stats')
+            ->setName('pheanstalk:stats')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('Gives statistical information about the beanstalkd system as a whole.');
     }

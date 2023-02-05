@@ -1,11 +1,11 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\DependencyInjection;
+namespace Angle\PheanstalkBundle\DependencyInjection;
 
-use Leezy\PheanstalkBundle\DataCollector\PheanstalkDataCollector;
-use Leezy\PheanstalkBundle\Exceptions\PheanstalkException;
-use Leezy\PheanstalkBundle\Listener\PheanstalkLogListener;
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\DataCollector\PheanstalkDataCollector;
+use Angle\PheanstalkBundle\Exceptions\PheanstalkException;
+use Angle\PheanstalkBundle\Listener\PheanstalkLogListener;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class LeezyPheanstalkExtension extends Extension
+class AnglePheanstalkExtension extends Extension
 {
     /**
      * {@inheritDoc}
@@ -60,8 +60,8 @@ class LeezyPheanstalkExtension extends Extension
             new Reference('logger')
         ]);
 
-        $container->setDefinition('leezy.pheanstalk.listener.log', $definition)->setPublic(true);
-        $container->setAlias(PheanstalkLogListener::class, 'leezy.pheanstalk.listener.log');
+        $container->setDefinition('angle.pheanstalk.listener.log', $definition)->setPublic(true);
+        $container->setAlias(PheanstalkLogListener::class, 'angle.pheanstalk.listener.log');
     }
 
     /**
@@ -72,9 +72,9 @@ class LeezyPheanstalkExtension extends Extension
     {
         // Create a connection locator that will reference all existing connection
         $connectionLocatorDef = new Definition(PheanstalkLocator::class);
-        $container->setDefinition('leezy.pheanstalk.pheanstalk_locator', $connectionLocatorDef);
-        $container->setAlias(PheanstalkLocator::class, 'leezy.pheanstalk.pheanstalk_locator');
-        $container->setParameter('leezy.pheanstalk.pheanstalks', $config['pheanstalks']);
+        $container->setDefinition('angle.pheanstalk.pheanstalk_locator', $connectionLocatorDef);
+        $container->setAlias(PheanstalkLocator::class, 'angle.pheanstalk.pheanstalk_locator');
+        $container->setParameter('angle.pheanstalk.pheanstalks', $config['pheanstalks']);
     }
 
     /**
@@ -93,9 +93,9 @@ class LeezyPheanstalkExtension extends Extension
         $dataCollectorDef = new Definition(PheanstalkDataCollector::class);
         $dataCollectorDef->setPublic(false);
         $dataCollectorDef->addTag('data_collector', ['id' => 'pheanstalk', 'template' => $config['profiler']['template']]);
-        $dataCollectorDef->addArgument(new Reference('leezy.pheanstalk.pheanstalk_locator'));
+        $dataCollectorDef->addArgument(new Reference('angle.pheanstalk.pheanstalk_locator'));
 
-        $container->setDefinition('leezy.pheanstalk.data_collector', $dataCollectorDef);
-        $container->setAlias(PheanstalkDataCollector::class, 'leezy.pheanstalk.data_collector');
+        $container->setDefinition('angle.pheanstalk.data_collector', $dataCollectorDef);
+        $container->setAlias(PheanstalkDataCollector::class, 'angle.pheanstalk.data_collector');
     }
 }

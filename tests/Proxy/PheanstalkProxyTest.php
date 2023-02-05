@@ -1,9 +1,9 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Proxy;
+namespace Angle\PheanstalkBundle\Tests\Proxy;
 
-use Leezy\PheanstalkBundle\Proxy\PheanstalkProxy;
-use Leezy\PheanstalkBundle\Proxy\PheanstalkProxyInterface;
+use Angle\PheanstalkBundle\Proxy\PheanstalkProxy;
+use Angle\PheanstalkBundle\Proxy\PheanstalkProxyInterface;
 use Pheanstalk\Connection;
 use Pheanstalk\Contract\PheanstalkInterface;
 use Pheanstalk\JobId;

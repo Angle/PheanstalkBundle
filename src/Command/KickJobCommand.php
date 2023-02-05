@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Pheanstalk\JobId;
@@ -16,7 +16,7 @@ class KickJobCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:kick-job')
+            ->setName('pheanstalk:kick-job')
             ->addArgument('job', InputArgument::REQUIRED, 'The job id to kick.')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')
             ->setDescription('Kick the specified job if it has a valid buried status, regardless of what tube it is in.');

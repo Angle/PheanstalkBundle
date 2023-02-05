@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\NextReadyCommand;
+use Angle\PheanstalkBundle\Command\NextReadyCommand;
 use Pheanstalk\Job;
 use Symfony\Component\Console\Tester\CommandTester;
 
@@ -17,7 +17,7 @@ class NextReadyCommandTest extends AbstractPheanstalkCommandTest
         $this->pheanstalk->expects($this->once())->method('useTube')->will($this->returnValue($this->pheanstalk));
         $this->pheanstalk->expects($this->once())->method('peekReady')->will($this->returnValue($job));
 
-        $command = $this->application->find('leezy:pheanstalk:next-ready');
+        $command = $this->application->find('pheanstalk:next-ready');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 

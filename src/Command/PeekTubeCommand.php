@@ -1,6 +1,6 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Command;
+namespace Angle\PheanstalkBundle\Command;
 
 use Pheanstalk\Exception;
 use Symfony\Component\Console\Input\InputArgument;
@@ -16,7 +16,7 @@ class PeekTubeCommand extends AbstractPheanstalkCommand
     protected function configure()
     {
         $this
-            ->setName('leezy:pheanstalk:peek-tube')
+            ->setName('pheanstalk:peek-tube')
             ->addArgument('tube', InputArgument::REQUIRED, 'The tube to peek.')
             ->addOption('buried', 'b', InputOption::VALUE_NONE, 'Peek in buried instead of ready')
             ->addArgument('pheanstalk', InputArgument::OPTIONAL, 'Pheanstalk name.')

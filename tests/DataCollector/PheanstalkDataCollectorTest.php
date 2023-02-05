@@ -1,9 +1,9 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests;
+namespace Angle\PheanstalkBundle\Tests;
 
-use Leezy\PheanstalkBundle\DataCollector\PheanstalkDataCollector;
-use Leezy\PheanstalkBundle\PheanstalkLocator;
+use Angle\PheanstalkBundle\DataCollector\PheanstalkDataCollector;
+use Angle\PheanstalkBundle\PheanstalkLocator;
 use Pheanstalk\Contract\PheanstalkInterface;
 use Pheanstalk\Response\ArrayResponse;
 use PHPUnit\Framework\TestCase;

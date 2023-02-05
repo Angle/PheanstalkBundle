@@ -1,8 +1,8 @@
 <?php
 
-namespace Leezy\PheanstalkBundle\Tests\Command;
+namespace Angle\PheanstalkBundle\Tests\Command;
 
-use Leezy\PheanstalkBundle\Command\KickCommand;
+use Angle\PheanstalkBundle\Command\KickCommand;
 use Symfony\Component\Console\Tester\CommandTester;
 
 class KickCommandTest extends AbstractPheanstalkCommandTest
@@ -14,7 +14,7 @@ class KickCommandTest extends AbstractPheanstalkCommandTest
         $this->pheanstalk->expects($this->once())->method('useTube')->with($args['tube']);
         $this->pheanstalk->expects($this->once())->method('kick')->with($args['max'])->will($this->returnValue(3));
 
-        $command = $this->application->find('leezy:pheanstalk:kick');
+        $command = $this->application->find('pheanstalk:kick');
         $commandTester = new CommandTester($command);
         $commandTester->execute($args);
 
