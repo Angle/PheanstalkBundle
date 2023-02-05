@@ -1,5 +1,21 @@
+# Composer
 /vendor/*
 /bin
 /composer.phar
 /composer.lock
 /.phpunit.result.cache
+
+
+# JetBrains IDEA
+/.idea/*
+!/.idea/.name
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
