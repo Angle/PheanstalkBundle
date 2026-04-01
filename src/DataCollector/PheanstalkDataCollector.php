@@ -41,7 +41,7 @@ class PheanstalkDataCollector extends DataCollector
         ];
     }
 
-    public function reset()
+    public function reset(): void
     {
         $this->data = [
             'pheanstalks' => [],
@@ -86,7 +86,7 @@ class PheanstalkDataCollector extends DataCollector
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return 'pheanstalk';
     }
