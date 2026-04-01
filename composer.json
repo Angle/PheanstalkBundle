@@ -37,7 +37,7 @@
     "require": {
         "php": "^8.4",
         "pda/pheanstalk": "^4",
-        "psr/log": "^1",
+        "psr/log": "^1|^2|^3",
         "symfony/console": "6.4|7.4",
         "symfony/framework-bundle": "6.4|7.4"
     },
