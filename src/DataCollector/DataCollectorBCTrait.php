@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 trait DataCollectorBCTrait
 {
-    public function collect(Request $request, Response $response, Throwable $exception = null): void
+    public function collect(Request $request, Response $response, ?Throwable $exception = null): void
     {
         $this->doCollect($request, $response, $exception);
     }
