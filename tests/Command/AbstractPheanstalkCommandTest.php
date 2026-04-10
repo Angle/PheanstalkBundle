@@ -6,6 +6,7 @@ use Angle\PheanstalkBundle\Command\AbstractPheanstalkCommand;
 use Angle\PheanstalkBundle\PheanstalkLocator;
 use Pheanstalk\Connection;
 use Pheanstalk\Contract\PheanstalkInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
@@ -14,17 +15,17 @@ use Symfony\Component\HttpKernel\KernelInterface;
 abstract class AbstractPheanstalkCommandTest extends TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|KernelInterface
+     * @var MockObject|KernelInterface
      */
     protected $kernel;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|PheanstalkLocator
+     * @var MockObject|PheanstalkLocator
      */
     protected $locator;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|PheanstalkInterface
+     * @var MockObject|PheanstalkInterface
      */
     protected $pheanstalk;
 
@@ -49,7 +50,7 @@ abstract class AbstractPheanstalkCommandTest extends TestCase
     public function testPheanstalkNotFound()
     {
         $this->expectException(\RuntimeException::class);
-        $this->locator = $this->createLocatorMock();
+        $this->locator = $this->createLocatorMock(null);
 
         $command = $this->getCommand();
 
@@ -71,11 +72,11 @@ abstract class AbstractPheanstalkCommandTest extends TestCase
     abstract protected function getCommandArgs();
 
     /**
-     * @param PheanstalkInterface $pheanstalk
+     * @param ?PheanstalkInterface $pheanstalk
      *
-     * @return \PHPUnit_Framework_MockObject_MockObject|PheanstalkLocator
+     * @return MockObject|PheanstalkLocator
      */
-    private function createLocatorMock(PheanstalkInterface $pheanstalk = null)
+    private function createLocatorMock(?PheanstalkInterface $pheanstalk)
     {
         $locator = $this
             ->getMockBuilder(PheanstalkLocator::class)
@@ -96,7 +97,7 @@ abstract class AbstractPheanstalkCommandTest extends TestCase
     /**
      * @param Connection $connection
      *
-     * @return PheanstalkInterface|\PHPUnit_Framework_MockObject_MockObject
+     * @return PheanstalkInterface|MockObject
      */
     private function createPheanstalkMock(Connection $connection)
     {
@@ -111,7 +112,7 @@ abstract class AbstractPheanstalkCommandTest extends TestCase
     }
 
     /**
-     * @return \PHPUnit_Framework_MockObject_MockObject|Connection
+     * @return MockObject|Connection
      */
     protected function createConnectionMock()
     {
